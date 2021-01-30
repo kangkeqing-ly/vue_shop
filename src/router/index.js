@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-27 11:34:15
- * @LastEditTime: 2021-01-29 16:24:55
+ * @LastEditTime: 2021-01-30 19:38:02
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\router\index.js
@@ -12,6 +12,8 @@ import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
 import Welcome from '../components/Welcome.vue'
 import Users from '../components/user/Users.vue'
+import Rights from '../components/power/Rights.vue'
+import Roles from '../components/power/Roles.vue'
 
 //导入全局样式
 import '../assets/css/global.css'
@@ -38,7 +40,9 @@ const routes = [
         path: '/welcome',
         component: Welcome
       },
-      { path: '/users', component: Users }
+      { path: '/users', component: Users },
+      { path: '/rights', component: Rights },
+      { path: '/roles', component: Roles }
     ]
   }
 ]
