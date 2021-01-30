@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-01-29 10:28:13
- * @LastEditTime: 2021-01-29 17:17:57
+ * @LastEditTime: 2021-01-30 10:00:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\components\Home.vue
@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import hub from '../components/utils/hub'
 export default {
   data() {
     return {
@@ -78,6 +79,8 @@ export default {
   created() {
     this.getMenuList()
     this.activePath = window.sessionStorage.getItem(' activePath')
+    // 定义一个事件监听，事件监听里面做 2 件事情，改变 activePath 和 本地的 sessionStorage
+    hub.$on('saveNavState', this.saveNavState)
   },
   methods: {
     logout: function() {
@@ -102,6 +105,10 @@ export default {
       //点击二级菜单的时候保存被点击的二级菜单信息
       window.sessionStorage.setItem('activePath', path)
       this.activePath = path
+    },
+    beforeDestroy() {
+      // 移除事件监听，防止监听多次
+      hub.$off('saveNavState')
     }
   }
 }
