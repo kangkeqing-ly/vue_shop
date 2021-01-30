@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2021-01-27 14:42:45
- * @LastEditTime: 2021-01-27 19:14:50
+ * @LastEditTime: 2021-01-29 10:43:07
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\components\Login.vue
@@ -26,7 +26,7 @@
         </el-form-item>
         <!-- 按钮 -->
         <el-form-item class="btns">
-          <el-button type="primary">登录</el-button>
+          <el-button type="primary" @click="login">登录</el-button>
           <el-button type="info" @click="resetLoginForm">重置</el-button>
         </el-form-item>
       </el-form>
@@ -40,8 +40,8 @@ export default {
     return {
       // 这是登录表单的数据绑定
       loginForm: {
-        username: 'zs',
-        password: '123'
+        username: 'admin',
+        password: '123456'
       },
       //表单验证规则
       loginFormRules: {
@@ -61,6 +61,18 @@ export default {
     resetLoginForm() {
       //   console.log(this)
       this.$refs.LoginFormRef.resetFields()
+    },
+    login() {
+      this.$refs.LoginFormRef.validate(async (valid) => {
+        //验证失败直接返回
+        if (!valid) return
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        //   console.log(res);
+        if (res.meta.status !== 200) return this.$message.error('登录失败')
+        this.$message.success('登录成功')
+        window.sessionStorage.setItem('token', res.data.token)
+        this.$router.push('/home')
+      })
     }
   }
 }
