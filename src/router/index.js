@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-27 11:34:15
- * @LastEditTime: 2021-01-30 19:38:02
+ * @LastEditTime: 2021-01-30 20:32:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\router\index.js
