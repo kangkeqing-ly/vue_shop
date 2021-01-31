@@ -1,11 +1,10 @@
+/* 全局样式表 */
 html,
 body,
 #app {
-  width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
-  min-width: 1366px;
 }
 
 .el-breadcrumb {
@@ -20,10 +19,6 @@ body,
 .el-table {
   margin-top: 15px;
   font-size: 12px;
-}
-
-.el-pagination {
-  margin-top: 15px;
 }
 
 .el-pagination {

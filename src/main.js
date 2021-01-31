@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-01-27 11:34:15
- * @LastEditTime: 2021-01-29 14:27:11
+ * @LastEditTime: 2021-01-31 16:12:23
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \vue_shop\src\main.js
@@ -16,6 +16,9 @@ import './assets/css/global.css'
 
 //导入全局样式
 import './assets/fonts/iconfont.css'
+
+//全局样式表
+import TreeTable from 'vue-table-with-tree-grid'
 
 // 导入 axios 以发送 ajax 请求 src/main.js
 import axios from 'axios'
@@ -39,6 +42,8 @@ Vue.prototype.$http = axios
 
 //阻止启动生产消息，常用作指令。
 Vue.config.$productionTip = false
+
+Vue.component('tree-table', TreeTable)
 
 new Vue({
   router,
