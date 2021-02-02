@@ -211,7 +211,7 @@ export default {
       }).catch((err) => err)
       // 如果用户确认删除，则返回字符串 confirm，取消返回 cancel
       if (confirmResult !== 'confirm') {
-        this.$message.info('已取消')
+        return this.$message.info('已取消')
       }
       const { data: res } = await this.$http.delete('roles/' + id)
       if (res.meta.status !== 200) {
